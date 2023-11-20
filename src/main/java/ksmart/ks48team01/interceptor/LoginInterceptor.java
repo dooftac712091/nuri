@@ -14,27 +14,28 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
+
         HttpSession session = request.getSession();
         String sessionId = (String) session.getAttribute("SID");
 
         if(sessionId != null) {
-            int sessionLevel = (int) session.getAttribute("SLEVEL");
+            String sessionLevel = (String) session.getAttribute("SLEVEL");
             String requestURI = request.getRequestURI();
 
-            if(sessionLevel == 2) {
-                if(     requestURI.indexOf("/admin/user") > -1 ||
-                        requestURI.indexOf("/admin/officer") > -1 ||
-                        requestURI.indexOf("/admin/store/storeList") > -1) {
+            if(sessionLevel.equals("2")) {
+                if(requestURI.contains("/admin/user")
+                    || requestURI.contains("/admin/officer")
+                    || requestURI.contains("/admin/store/storeList")) {
                     response.sendRedirect("/admin");
                     return false;
                 }
-            } else if (sessionLevel == 3) {
-                if(     requestURI.indexOf("/admin/adminRegister") > -1) {
+            } else if (sessionLevel.equals("3")) {
+                if(requestURI.contains("/admin/adminRegister")) {
                     response.sendRedirect("/");
                     return false;
                 }
-            } else if (sessionLevel == 4) {
-                if(     requestURI.indexOf("/admin") > -1) {
+            } else if (sessionLevel.equals("4")) {
+                if(requestURI.contains("/admin")) {
                     response.sendRedirect("/");
                     return false;
                 }
