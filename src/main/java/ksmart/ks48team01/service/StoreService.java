@@ -1,9 +1,12 @@
 package ksmart.ks48team01.service;
 
 import ksmart.ks48team01.dto.Store;
+import ksmart.ks48team01.mapper.ContentsMapper;
 import ksmart.ks48team01.mapper.StoreMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -50,6 +53,12 @@ public class StoreService {
         return specificStoreInfo;
     }
 
+    public int storeRegister(Store store) {
+        int registerResult = storeMapper.storeRegister(store);
+
+        return registerResult;
+    }
+
     /**
      * GET 방식으로 유저 가맹점 설명 페이지에서 호출 및 입력 값이 없을 경우
      * 출력되는 전체 결과
@@ -71,7 +80,5 @@ public class StoreService {
 
         return keywordList;
     }
-
-
 
 }
