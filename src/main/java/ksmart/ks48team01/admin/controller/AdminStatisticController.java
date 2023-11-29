@@ -31,7 +31,7 @@ public class AdminStatisticController {
 		return storeSttList;
 	}
 
-	@GetMapping("storeStt")
+	@GetMapping("/storeStt")
 	public String storeStt(Model model, @RequestParam(name="searchKey",required = false) String searchKey,
 						   				@RequestParam(name="searchValue", required = false, defaultValue = "") String searchValue) {
 		List<Statistic> storeSttList = statisticService.getStoreSttList();
@@ -42,32 +42,32 @@ public class AdminStatisticController {
 		model.addAttribute("storeSttList", storeSttList);
 
 
-		return "/admin/statistic/storeStt";
+		return "admin/statistic/storeStt";
 	}
-	@GetMapping("cateStt")
+	@GetMapping("/cateStt")
 	public String cateStt(Model model) {
 
-		return "/admin/statistic/cateStt";
+		return "admin/statistic/cateStt";
 	}
-	@GetMapping("regionStt")
+	@GetMapping("/regionStt")
 	public String regionStt(Model model) {
 
-		return "/admin/statistic/regionStt";
+		return "admin/statistic/regionStt";
 	}
-	@GetMapping("districtStt")
+	@GetMapping("/districtStt")
 	public String districtStt(Model model) {
 
-		return "/admin/statistic/districtStt";
+		return "admin/statistic/districtStt";
 	}
-	@GetMapping("regionCateStt")
+	@GetMapping("/regionCateStt")
 	public String regionCateStt(Model model) {
 
-		return "/admin/statistic/regionCateStt";
+		return "admin/statistic/regionCateStt";
 	}
 
-	@GetMapping("budgetUseage")
+	@GetMapping("/budgetUseage")
 	public String budgetUseage(Model model) {
 
-		return "/admin/statistic/budgetUseage";
+		return "admin/statistic/budgetUseage";
 	}
 }
