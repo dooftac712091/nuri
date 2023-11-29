@@ -19,11 +19,15 @@ public class AboutController {
     @GetMapping("/nuriService")
     public String aboutNuriService(Model model) {
 
+        model.addAttribute("title", "서비스 | 누리컬쳐 서비스 소개");
+
         return "user/about/nuriService";
     }
 
     @GetMapping("/nuriCard")
     public String aboutNuriCard(Model model) {
+
+        model.addAttribute("title", "서비스 | 문화누리카드 소개");
 
         return "user/about/nuriCard";
     }

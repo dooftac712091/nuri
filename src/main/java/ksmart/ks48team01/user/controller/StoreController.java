@@ -33,8 +33,11 @@ public class StoreController {
     @GetMapping("/nuriStore")
     public String nuriStoreList(@RequestParam (name = "storeId", required = false)
                                     String storeId, Model model) {
-            Store specifiedStore;
-            Store contentsListByStore;
+
+        model.addAttribute("title", "가맹점/컨텐츠 | 가맹점 조회");
+
+        Store specifiedStore;
+        Store contentsListByStore;
 
         if(storeId != null) {
             specifiedStore = storeService.specificStoreInfo(storeId);

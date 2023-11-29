@@ -78,7 +78,7 @@ public class RegisterController {
         // 지역 1 Select option 시 RegionList 출력
         List<Region> regionList = areaService.getRegionList();
 
-        model.addAttribute("title", "회원가입 - 누리컬쳐");
+        model.addAttribute("title", "사용자 회원가입 - 누리컬쳐");
         model.addAttribute("regionList", regionList);
 
         return "user/register/memberRegister";
@@ -102,7 +102,7 @@ public class RegisterController {
         List<Region> regionList = areaService.getRegionList();
         List<StoreCategory> storeCategoryList = contentsService.getStoreCategory();
 
-        model.addAttribute("title", "회원가입 - 누리컬쳐");
+        model.addAttribute("title", "가맹점 회원가입 - 누리컬쳐");
         model.addAttribute("regionList", regionList);
         model.addAttribute("storeCategoryList", storeCategoryList);
 
@@ -125,7 +125,7 @@ public class RegisterController {
         List<Region> regionList = areaService.getRegionList();
         List<DistrictDep> districtDepList = areaService.getDistrictDepList();
 
-        model.addAttribute("title", "회원가입 - 누리컬쳐");
+        model.addAttribute("title", "공무원 회원가입 - 누리컬쳐");
         model.addAttribute("regionList", regionList);
         model.addAttribute("districtDepList", districtDepList);
 
@@ -158,7 +158,7 @@ public class RegisterController {
     @GetMapping("/registerConfirm")
     public String registerConfirm(Model model) {
 
-        model.addAttribute("title", "회원가입 - 누리컬쳐");
+        model.addAttribute("title", "가입완료 - 누리컬쳐");
 
         return "user/register/registerConfirm";
     }

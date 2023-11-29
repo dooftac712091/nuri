@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpSession;
 import ksmart.ks48team01.service.UserService;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -23,7 +24,9 @@ public class AuthController {
     }
 
     @GetMapping("/login")
-    public String loginController() {
+    public String loginController(Model model) {
+
+        model.addAttribute("title", "로그인 - 누리컬쳐");
 
         return "user/auth/login";
     }
@@ -33,6 +36,7 @@ public class AuthController {
                                   @RequestParam(name = "userPw") String userPw,
                                   HttpSession session,
                                   RedirectAttributes reAttr) {
+
         Map<String, Object> loginMap = userService.checkUserInfo(userId, userPw);
         boolean isChecked = (boolean) loginMap.get("isChecked");
         if(isChecked) {
@@ -51,7 +55,9 @@ public class AuthController {
 
     // 이메일과 회원이름을 조회하여 아이디를 반환하기 위한 입력폼
     @GetMapping("/findMyId")
-    public String findMyId() {
+    public String findMyId(Model model) {
+
+        model.addAttribute("title", "아이디 찾기 - 누리컬쳐");
 
         return "user/auth/findMyId";
     }
@@ -80,7 +86,9 @@ public class AuthController {
      * @return 비밀번호 찾기 페이지
      */
     @GetMapping("/findMyPw")
-    public String findMyPw() {
+    public String findMyPw(Model model) {
+
+        model.addAttribute("title", "비밀번호 찾기 - 누리컬쳐");
 
         return "user/auth/findMyPw";
     }
@@ -102,7 +110,9 @@ public class AuthController {
     }
 
     @GetMapping("/resetMyPw")
-    public String resetMyPw() {
+    public String resetMyPw(Model model) {
+
+        model.addAttribute("비밀번호 초기화 - 누리컬쳐");
 
         return "user/auth/resetMyPw";
     }

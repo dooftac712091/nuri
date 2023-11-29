@@ -13,18 +13,10 @@ public class MainController {
 
 	@GetMapping(value = {"", "/"})
 	public String userMainPage(Model model) {
+
+		model.addAttribute("title", "메인페이지 - 누리컬쳐");
 		
 		return "user/main";
 	}
 
-	@GetMapping("/devPageLSH")
-	public String devPage(Model model) {
-
-		model.addAttribute("title", "누리컬쳐");
-		model.addAttribute("pageTitle", "개발자 링크 페이지");
-		model.addAttribute("breadCrumb1", "메인페이지");
-		model.addAttribute("breadCrumb2", "이승호");
-
-		return "user/devPageLSH";
-	}
 }
