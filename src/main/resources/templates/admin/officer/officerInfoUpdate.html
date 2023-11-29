@@ -7,6 +7,11 @@
     <script th:src="@{/js/jquery-3.7.1.js}"></script>
 </th:block>
 
+<th:block layout:fragment="customJs">
+    <script th:src="@{/admin/js/customjs/district-list.js}"></script>
+</th:block>
+
+
 <body id="page-top">
 
 <!-- /* layout:decorate 이 부분의 파일에서 사용자 정의로 선언한 조각에 작성한 html코드를 삽입 */ -->
@@ -118,8 +123,6 @@
         </div>
     </div>
     <!-- 가맹점 수정 Form 시작  -->
-
-    <script src="/admin/js/customjs/district-list.js"></script>
 
 </th:block>
 

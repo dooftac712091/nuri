@@ -23,7 +23,7 @@
 
 <!-- 사용자 페이지별 javascript file 추가-->
 <th:block layout:fragment="customJsFile">
-
+    <script th:src="@{/user/assets/js/findMyId.js}"></script>
 </th:block>
 
 <!-- 사용자별 스크립트 작성 -->
@@ -95,9 +95,5 @@
     </section>
     <!--====== 404 PRODUCT PART ENDS ======-->
 </th:block>
-
-<body>
-<script src="/user/assets/js/findMyId.js"></script>
-</body>
 
 </html>

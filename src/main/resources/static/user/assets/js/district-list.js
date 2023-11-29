@@ -13,8 +13,8 @@ $regionCode.addEventListener('change', function () {
     getDistrictList(requestDistrictList);
 })
 
-function getDistrictList(requestDistrictListUrl) {
-    fetch(requestDistrictListUrl)
+function getDistrictList(districtListUrl) {
+    fetch(districtListUrl)
         .then(response => response.json())
         .then(json => json.forEach((data) => {
             let districtOption = document.createElement("option");

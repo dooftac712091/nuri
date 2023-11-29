@@ -7,6 +7,11 @@
 		<script th:src="@{/js/jquery-3.7.1.js}"></script>
 	</th:block>
 
+	<th:block layout:fragment="customJsFile">
+		<script th:src="@{/admin/js/customjs/district-list.js}"></script>
+		<script th:src="@{/admin/js/customjs/form-validation.js}"></script>
+	</th:block>
+
 	<th:block layout:fragment="customJsCode">
 		<script>
 
@@ -199,10 +204,6 @@
 				</form>
 			</div>
 		</div>
-
-		<script src="/admin/js/customjs/district-list.js"></script>
-
-		<script src="/admin/js/customjs/form-validation.js"></script>
 
 	</th:block>
 

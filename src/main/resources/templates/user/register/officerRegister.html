@@ -30,10 +30,10 @@
 
 <!-- 사용자 페이지별 javascript file 추가-->
 <th:block layout:fragment="customJsFile">
-    <script src="/user/assets/js/district-list.js"></script>
-    <script src="/user/assets/js/userValidate.js"></script>
-    <script src="/user/assets/js/officerForm.js"></script>
-    <script src="/user/assets/js/formControl.js"></script>
+    <script th:src="@{/user/assets/js/district-list.js}"></script>
+    <script th:src="@{/user/assets/js/userValidate.js}"></script>
+    <script th:src="@{/user/assets/js/officerForm.js}"></script>
+    <script th:src="@{/user/assets/js/formControl.js}"></script>
 </th:block>
 
 
