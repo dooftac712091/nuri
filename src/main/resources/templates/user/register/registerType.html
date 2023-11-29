@@ -16,12 +16,12 @@
 
 <!-- 사용자 페이지별 javascript file 추가-->
 <th:block layout:fragment="customJsFile">
-
+    <script type="text/javascript" th:src="@{/user/assets/js/district-list.js}"></script>
 </th:block>
 
 <!-- 사용자별 스크립트 작성 -->
 <th:block layout:fragment="customJsCode">
-    <script th:src="@{/user/assets/js/district-list.js}"></script>
+
 </th:block>
 
 <!--/* layout:decorate 이부분의 파일에서 사용자 정의로 선언한 조각에 작성한 html코드를 삽입  */-->
