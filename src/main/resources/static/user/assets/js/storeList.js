@@ -45,6 +45,7 @@ function searchByStoreCategory(storeCategoryValue) {
     }).then((resp) => resp.json())
         .then(result => result.forEach((data) => {
             console.log(data)
+
             let storeTableTr = document.createElement('tr')
             let storeTableTd = document.createElement('td')
             let storeTableBr = document.createElement('br')
@@ -61,31 +62,41 @@ function searchByStoreCategory(storeCategoryValue) {
             let storeRegDateTd = document.createElement('td')
             let storeRegDateSpan = document.createElement('span')
 
-            storeTableTr.setAttribute('class', 'text-center')
-            storeTableAnchor.setAttribute('class', 'title-text')
-            storeTableAnchor.setAttribute('href', `/user/store/nuriStore?storeId=${data.storeId}`)
-            storeCategorySpan.setAttribute('class', 'category-text')
+            if(data === '[]') {
+                storeTableTr.setAttribute('class', 'text-center')
+                storeTableTd.setAttribute('colspan', '5')
+                storeCategorySpan.appendChild(document.createTextNode("조회된 결과가 없습니다."))
+                storeTableTd.append(storeCategorySpan)
+                storeTableTr.appendChild(storeTableTd)
+                $storeTableBody.appendChild(storeTableTr)
 
-            storeCategorySpan.appendChild(document.createTextNode(`${data.storeCategoryName}`))
-            contentsCategorySpan.appendChild(document.createTextNode(`${data.contents.contentsCategoryName}`))
-            storeTableAnchor.appendChild(document.createTextNode(`${data.storeName}`))
-            storeAddrSpan.appendChild(document.createTextNode(`${data.region.regionName} ${data.district.districtName}`))
-            storeContactSpan.appendChild(document.createTextNode(`${data.storeContact}`))
-            storeOpenTimeSpan.appendChild(document.createTextNode(`${data.openingTime}`))
-            storeRegDateSpan.appendChild(document.createTextNode(`${data.storeRegDate}`))
+            } else {
+                storeTableTr.setAttribute('class', 'text-center')
+                storeTableAnchor.setAttribute('class', 'title-text')
+                storeTableAnchor.setAttribute('href', `/user/store/nuriStore?storeId=${data.storeId}`)
+                storeCategorySpan.setAttribute('class', 'category-text')
 
-            storeTableTd.append(storeCategorySpan, storeTableBr, contentsCategorySpan)
-            storeTitleTd.append(storeTableAnchor, storeTitleBr, storeAddrSpan)
-            storeContactTd.append(storeContactSpan)
-            storeOpenTd.append(storeOpenTimeSpan)
-            storeRegDateTd.append(storeRegDateSpan)
+                storeCategorySpan.appendChild(document.createTextNode(`${data.storeCategoryName}`))
+                contentsCategorySpan.appendChild(document.createTextNode(`${data.contents.contentsCategoryName}`))
+                storeTableAnchor.appendChild(document.createTextNode(`${data.storeName}`))
+                storeAddrSpan.appendChild(document.createTextNode(`${data.region.regionName} ${data.district.districtName}`))
+                storeContactSpan.appendChild(document.createTextNode(`${data.storeContact}`))
+                storeOpenTimeSpan.appendChild(document.createTextNode(`${data.openingTime}`))
+                storeRegDateSpan.appendChild(document.createTextNode(`${data.storeRegDate}`))
 
-            storeTableTr.appendChild(storeTableTd)
-            storeTableTr.appendChild(storeTitleTd)
-            storeTableTr.appendChild(storeContactTd)
-            storeTableTr.appendChild(storeOpenTd)
-            storeTableTr.appendChild(storeRegDateTd)
+                storeTableTd.append(storeCategorySpan, storeTableBr, contentsCategorySpan)
+                storeTitleTd.append(storeTableAnchor, storeTitleBr, storeAddrSpan)
+                storeContactTd.append(storeContactSpan)
+                storeOpenTd.append(storeOpenTimeSpan)
+                storeRegDateTd.append(storeRegDateSpan)
 
-            $storeTableBody.appendChild(storeTableTr)
+                storeTableTr.appendChild(storeTableTd)
+                storeTableTr.appendChild(storeTitleTd)
+                storeTableTr.appendChild(storeContactTd)
+                storeTableTr.appendChild(storeOpenTd)
+                storeTableTr.appendChild(storeRegDateTd)
+
+                $storeTableBody.appendChild(storeTableTr)
+            }
         }))
 }
