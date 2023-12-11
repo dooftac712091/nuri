@@ -2,7 +2,7 @@ package ksmart.ks48team01.dto;
 
 public class ContentsFile {
     private String fileCode;
-    private String contentsId;
+    private String ContentsId;
     private String userId;
     private String fileName;
     private long fileSize;
@@ -19,11 +19,11 @@ public class ContentsFile {
     }
 
     public String getContentsId() {
-        return contentsId;
+        return ContentsId;
     }
 
     public void setContentsId(String contentsId) {
-        this.contentsId = contentsId;
+        ContentsId = contentsId;
     }
 
     public String getUserId() {
@@ -78,7 +78,7 @@ public class ContentsFile {
     public String toString() {
         final StringBuilder sb = new StringBuilder("ContentsFile{");
         sb.append("fileCode='").append(fileCode).append('\'');
-        sb.append(", ContentsId='").append(contentsId).append('\'');
+        sb.append(", ContentsId='").append(ContentsId).append('\'');
         sb.append(", userId='").append(userId).append('\'');
         sb.append(", fileName='").append(fileName).append('\'');
         sb.append(", fileSize=").append(fileSize);

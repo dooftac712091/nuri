@@ -25,6 +25,13 @@ public class AdminPurchaseController {
 		this.paymentService = paymentService;
 	}
 
+
+	@GetMapping("/reservationInfo")
+	public String reservationInfo(Model model) {
+
+		return "admin/purchase/reservationInfo";
+	}
+
 	@PostMapping("/searchPurchases")
 	@ResponseBody
 	public List<Payment> purchaseInfo(@RequestBody List<Map<String, Object>> searchList){
@@ -33,7 +40,6 @@ public class AdminPurchaseController {
 		List<Payment> paymentList = paymentService.getPaymentList(searchList);
 		return paymentList;
 	}
-
 
 	@GetMapping(value={"/purchaseInfo"})
 	public String purchaseInfo(Model model, HttpSession session,
@@ -93,5 +99,10 @@ public class AdminPurchaseController {
 		return "admin/purchase/adjInfoStore";
 	}
 */
+	@GetMapping("/reservationInfoModify")
+	public String reservationInfoModify(Model model) {
+
+		return "admin/purchase/reservationInfoModify";
+	}
 
 }
