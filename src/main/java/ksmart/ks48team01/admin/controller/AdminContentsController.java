@@ -53,10 +53,20 @@ public class AdminContentsController {
 	}
 	
 	
-	@PostMapping(value={"/contentsInfoDelete"})
-	public String contentsDelete(Model model) {
-		return "redirect:/admin/contents/contentsInfoList";
+	@GetMapping(value={"/contentsInfoDelete"})
+	public String contentsDeletePage(Model model) {
+		model.addAttribute("title", "컨텐츠 삭제");
+		return "admin/contents/contentsInfoDelete";
 	}
+	
+	
+	@GetMapping(value={"/contentsInfoSpecific"})
+	public String contentsSpecificPage(Model model) {
+		model.addAttribute("title", "컨텐츠 검색");
+		return "admin/contents/contentsInfoSpecific";
+	}
+	
+	
 	@GetMapping(value={"/contentsInfoList"})
 	public String contentsListPage(Model model,
 								   @RequestParam(name="contentsName", required = false, defaultValue = "") String contentsName,
