@@ -50,8 +50,7 @@
 
                     <div class="post-ad-form-wrapper">
 
-                        <form id="addContentsForm" th:action="@{/user/contents/contentsInfoRegist}" method="post"
-                              enctype="multipart/form-data">
+                        <form id="addContentsForm" th:action="@{/user/contents/contentsInfoRegist}" method="post">
                             <div class="row justify-content-center">
                                 <div class="col-xl-7">
                                     <div class="right-wrapper pt-50 ">
@@ -66,7 +65,8 @@
 
                                         <div class="single-form mb-30">
                                             <label for="contentsFile" class="mb-1">책 이미지</label>
-                                            <input type="file" id="contentsFile" name="contentsFile" class="px-3 py-2 mb-0 border rounded">
+                                            <input type="file" id="contentsFile" name="contentsFile" class="px-3 py-2 mb-0 border rounded"
+                                            multiple="multiple">
                                         </div>
 
                                         <div class="single-form mb-30">
@@ -130,7 +130,7 @@
     </section>
 </th:block>
 <!--====== CATEGORY PART END ======-->
-jA<th:block layout:fragment="customJsCode">
+<th:block layout:fragment="customJsCode">
     <script>
 
         jQuery(document).ready(function(){
